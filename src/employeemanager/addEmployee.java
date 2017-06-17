@@ -1,5 +1,7 @@
 package employeemanager;
 
+import java.io.IOException;
+
 public class addEmployee extends javax.swing.JFrame {
 
     public addEmployee() {
@@ -237,7 +239,7 @@ public class addEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
 
-/*me fshi*/
+    
     private EmployeeList employeeList ;
     private MainWindow parentWindow;
     
@@ -250,7 +252,6 @@ public class addEmployee extends javax.swing.JFrame {
     
     private void addEmployee(){
         Employee newEmployee = new Employee();
-        
         newEmployee.setFirstName(txtFirstName.getText());
         newEmployee.setLastName(txtLastName.getText());
         newEmployee.setID(txtID.getText());
@@ -261,10 +262,8 @@ public class addEmployee extends javax.swing.JFrame {
         newEmployee.setPhoneNumber(txtPhoneNumber.getText());
         newEmployee.setPosition(txtPosition.getText());
         newEmployee.setSalary(txtSalary.getText());
-        
         employeeList.addEmployee(newEmployee);
         parentWindow.loadEmployeeToList();
-        
         setVisible(false);
     }
 

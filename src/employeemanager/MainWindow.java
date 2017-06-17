@@ -208,8 +208,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNewEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewEmployeeMouseClicked
-        addEmployee add = new addEmployee();
-        add.setVisible(true);
+       
     }//GEN-LAST:event_btnAddNewEmployeeMouseClicked
 
     private void btnAddNewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewEmployeeActionPerformed
