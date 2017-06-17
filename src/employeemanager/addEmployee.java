@@ -201,7 +201,7 @@ public class addEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDepartmentActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
@@ -238,13 +238,13 @@ public class addEmployee extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 /*me fshi*/
-    private Employee employee = null;
+    private EmployeeList employeeList ;
     private MainWindow parentWindow;
     
-    public void setEmployee(Employee employee){
-        this.employee = employee;
+    public void setEmployeeList(EmployeeList employeeList){
+        this.employeeList = employeeList;
     }   
-    public void setMainWindow(MainWindow parentWindow) {
+    public void setParentWindow(MainWindow parentWindow) {
         this.parentWindow = parentWindow;
     }
     
@@ -261,6 +261,11 @@ public class addEmployee extends javax.swing.JFrame {
         newEmployee.setPhoneNumber(txtPhoneNumber.getText());
         newEmployee.setPosition(txtPosition.getText());
         newEmployee.setSalary(txtSalary.getText());
+        
+        employeeList.addEmployee(newEmployee);
+        parentWindow.loadEmployeeToList();
+        
+        setVisible(false);
     }
 
 }
