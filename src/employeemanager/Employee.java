@@ -1,6 +1,7 @@
 package employeemanager;
+import java.io.Serializable;
 
-public class Employee {
+public class Employee implements Serializable {
     
     private String ID;
     private String FirstName;
@@ -8,20 +9,42 @@ public class Employee {
     private String Salary;
     private String Department;
     private String Position;
-    private double workHours;
     private String email;
     private String phoneNumber;
     private String birthDate;
     private String HiredDate;
-    Iterable<Employee> getList;
+ 
+       public Employee() {
+    
+    }
+     
+    public Employee(String firstName, String lastName) {
+        
+        this.FirstName = firstName;
+        this.LastName = lastName;
+    }
+    
+      public Employee(String id, String firstName, String lastName, String salary, String department, String position, String email, String phonenumber, String birthdate, String hiredate) {
+        
+        this.ID = id;
+          this.FirstName = firstName;
+        this.LastName = lastName;
+        this.Salary = salary;
+       this.Department = department;
+         this.Position = position;
+       this.email = email;
+       this.phoneNumber = phonenumber;
+       this.birthDate = birthdate;
+       this.HiredDate = hiredate;
+    }
 
     public String getID() {
         return ID;
     }
-
-    public void setID(String ID) {
-        this.ID = ID;
+      public void setID(String id) {
+        this.ID = id;
     }
+
 
     public String getFirstName() {
         return FirstName;
@@ -64,13 +87,6 @@ public class Employee {
         this.Position = Position;
     }
 
-    public double getWorkHours() {
-        return workHours;
-    }
-
-    public void setWorkHours(double workHours) {
-        this.workHours = workHours;
-    }
 
     public String getEmail() {
         return email;
@@ -103,4 +119,10 @@ public class Employee {
     public void setHiredDate(String HiredDate) {
         this.HiredDate = HiredDate;
     } 
+       @Override
+    public String toString() {
+        
+        return FirstName + " " + LastName;
+    }
+    
 }
