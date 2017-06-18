@@ -1,12 +1,18 @@
 package employeemanager;
 
+
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
-public class MainWindow extends javax.swing.JFrame {
 
-    public MainWindow() {
+public class MainWindow extends javax.swing.JFrame {
+   private static EmployeeList employeeList;
+     private static String objPath = new File("object.dat").getAbsolutePath();
+    
+     public MainWindow() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -212,11 +218,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddNewEmployeeMouseClicked
 
     private void btnAddNewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewEmployeeActionPerformed
+     
+      
+     
+       System.out.println(objPath);
+        
+        employeeList  = EmployeeList.LoadFromFile(objPath);
+        
+        if (employeeList == null)
+            employeeList = new EmployeeList(objPath);
+
+        
         addEmployee AddEmployee = new addEmployee();
         AddEmployee.setVisible(true);
         
         AddEmployee.setEmployeeList(employeeList);
         AddEmployee.setParentWindow(this);
+        
         
     }//GEN-LAST:event_btnAddNewEmployeeActionPerformed
 
@@ -241,11 +259,14 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDepartmentActionPerformed
 
     private void lstEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstEmployeeMouseClicked
-          if(lstEmployee.getSelectedValues().length > 0) {
+          
+        if(lstEmployee.getSelectedValues().length > 0) {
             
             Employee selectedEmployee = (Employee)lstEmployee.getSelectedValues()[0];
             loadEmployeeInformation(selectedEmployee);
         }
+          
+          
     }//GEN-LAST:event_lstEmployeeMouseClicked
 
 
@@ -275,7 +296,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
-    private EmployeeList employeeList;
+    
+  
+    
+    
     private Employee selectedEmployee = null;
 
     public void setEmployeeList(EmployeeList employeeList) {
@@ -357,6 +381,9 @@ public class MainWindow extends javax.swing.JFrame {
         txtHiredDate.setText("");
         
     }
-   
+     
+ 
+    
+      
 
 }
